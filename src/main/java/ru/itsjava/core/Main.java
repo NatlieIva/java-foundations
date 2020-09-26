@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = new int[]{1, 5, -1, 10, -22, 100, 3, 0, -3};
+        int[] array = new int[]{1, 5, -1, 10, -22, 100, 3, 0, -3, -1000};
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the number:");
