@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = new int[]{1, 5, -1, 10, -22, 100, 3, 0, -3, -1000};
+        int[] array = new int[]{1, 5, -1, 10, -22, 100, 3000, 0, -3, -1000};
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the number:");
@@ -14,43 +14,43 @@ public class Main {
         System.out.println("Sum of digit: " + getSumDigits(num));
 
         System.out.print("Number divisors: ");
-        getNumberDivisors(num);
+        printNumberDivisors(num);
         System.out.println();
 
-        getElementByIndex(array, 3, 5);
+        printElementByIndex(array, 3, 5);
 
         System.out.print("Even elements from array : ");
-        getEvenElements(array);
+        printEvenElements(array);
 
         System.out.println();
 
         System.out.print("Odd elements from array : ");
-        getOddElements(array);
+        printOddElements(array);
 
         System.out.println();
 
         System.out.print("First four elements from array: ");
-        getFirstFourElements(array);
+        printFirstFourElements(array);
 
         System.out.println();
 
         System.out.print("Last four elements from array: ");
-        getLastFourElements(array);
+        printLastFourElements(array);
 
         System.out.println();
 
         System.out.print("Each third elements from inverse array: ");
-        getEachThirdElementsFromInverseArray(array);
+        printEachThirdElementsFromInverseArray(array);
 
         System.out.println();
 
         System.out.print("Positive elements from inverse array: ");
-        getPositiveElementsFromInverseArray(array);
+        printPositiveElementsFromInverseArray(array);
 
         System.out.println();
 
         System.out.print("Index zero elements from array: ");
-        getIndexZeroElements(array);
+        printIndexZeroElements(array);
 
         System.out.println();
 
@@ -72,7 +72,7 @@ public class Main {
 
         System.out.println("Get the index of element from array: " + getIndexElement(array, 10));
 
-        getPositiveArray(array);
+        printPositiveArray(array);
     }
 
 
@@ -86,7 +86,7 @@ public class Main {
         return sum;
     }
 
-    public static void getNumberDivisors(int number) {
+    public static void printNumberDivisors(int number) {
         number = Math.abs(number);
         for (int divisor = 1; divisor <= number; divisor++) {
             if ((number % divisor) == 0) {
@@ -95,45 +95,45 @@ public class Main {
         }
     }
 
-    public static void getElementByIndex(int[] array, int index1, int index2) {
+    public static void printElementByIndex(int[] array, int index1, int index2) {
         System.out.println("Element by number " + (index1 - 1) + ": " + array[index1 - 1]);
         System.out.println("Element by number " + (index2 - 1) + ": " + array[index2 - 1]);
     }
 
-    public static void getEvenElements(int[] array) {
+    public static void printEvenElements(int[] array) {
         for (int i = 1; i < array.length; ) {
             System.out.print(array[i] + " ");
             i = i + 2;
         }
     }
 
-    public static void getOddElements(int[] array) {
+    public static void printOddElements(int[] array) {
         for (int i = 0; i < array.length; ) {
             System.out.print(array[i] + " ");
             i = i + 2;
         }
     }
 
-    public static void getFirstFourElements(int[] array) {
+    public static void printFirstFourElements(int[] array) {
         for (int i = 0; i < 4; i++) {
             System.out.print(array[i] + " ");
         }
     }
 
-    public static void getLastFourElements(int[] array) {
+    public static void printLastFourElements(int[] array) {
         for (int i = array.length - 1; i > array.length - 5; i--) {
             System.out.print(array[i] + " ");
         }
     }
 
-    public static void getEachThirdElementsFromInverseArray(int[] array) {
+    public static void printEachThirdElementsFromInverseArray(int[] array) {
         for (int i = array.length - 3; i >= 0; ) {
             System.out.print(array[i] + " ");
             i = i - 3;
         }
     }
 
-    public static void getPositiveElementsFromInverseArray(int[] array) {
+    public static void printPositiveElementsFromInverseArray(int[] array) {
         for (int i = array.length - 1; i >= 0; i--) {
             if (array[i] > 0) {
                 System.out.print(array[i] + " ");
@@ -141,7 +141,7 @@ public class Main {
         }
     }
 
-    public static void getIndexZeroElements(int[] array) {
+    public static void printIndexZeroElements(int[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i] == 0) {
                 System.out.print(i + " ");
@@ -218,19 +218,16 @@ public class Main {
 
     public static int[] getTwoMaxElements(int[] array) {
         int[] twoMax = new int[2];
-        int max1 = array[0];
+        twoMax[0] = array[0];
         for (int i = 1; i < array.length - 1; i++) {
-            if (array[i] > max1) {
-                max1 = array[i];
+            if (array[i] > twoMax[0]) {
+                twoMax[1] = twoMax[0];
+                twoMax[0] = array[i];
+            } else {
+                if (array[i] > twoMax[1]){
+                    twoMax[1] = array[i];
+                }
             }
-            twoMax[0] = max1;
-        }
-        int max2 = array[0];
-        for (int i = 1; i < array.length - 1; i++) {
-            if ((array[i] > max2) && (array[i] != twoMax[0])) {
-                max2 = array[i];
-            }
-            twoMax[1] = max2;
         }
         return twoMax;
     }
@@ -245,7 +242,7 @@ public class Main {
         return index;
     }
 
-    public static void getPositiveArray(int[] array) {
+    public static void printPositiveArray(int[] array) {
         int countPositive = 0;
         for (int value : array) {
             if (value > 0) {
