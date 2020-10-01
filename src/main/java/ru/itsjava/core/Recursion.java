@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class Recursion {
 
     public static void main(String[] args) {
-//        System.out.println(getFactorial(5));
-//        printArray(4);
-//        System.out.println(getFibonacciNumbers(6));
+        System.out.println(getFactorial(5));
+        printArray(4);
+        System.out.println(getFibonacciNumbers(6));
 
         int[] array = new int[]{3, 5, 1, 0, 6, 8, 2};
         int lowMarker = 0;
