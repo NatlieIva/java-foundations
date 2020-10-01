@@ -8,7 +8,7 @@ public class PaintShop {
 
     public static void main(String[] args) {
 
-        String[] paints = new String[]{"white", "blue", "yellow", "black", "red", "green", "gray"};
+        String[] paints = new String[]{"white", "blue", "yellow", "black", "red", "green", "grey"};
         System.out.println("Добро пожаловать в магазин красок!");
 
         printMenu();
