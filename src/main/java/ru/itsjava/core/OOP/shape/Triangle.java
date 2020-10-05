@@ -1,28 +1,28 @@
 package ru.itsjava.core.OOP.shape;
 
 public class Triangle extends Shape {
-    private int a;
-    private int b;
-    private int c;
+    private int sideA;
+    private int sideB;
+    private int sideC;
     private int height;
 
-    public Triangle(int a, int b, int c, int height) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public Triangle(int sideA, int sideB, int sideC, int height) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
         this.height = height;
     }
 
-    public int getA() {
-        return a;
+    public int getSideA() {
+        return sideA;
     }
 
-    public int getB() {
-        return b;
+    public int getSideB() {
+        return sideB;
     }
 
-    public int getC() {
-        return c;
+    public int getSideC() {
+        return sideC;
     }
 
     public int getHeight() {
@@ -31,11 +31,11 @@ public class Triangle extends Shape {
 
     @Override
     double getArea() {
-        return c * height / 2;
+        return sideC * height / 2;
     }
 
     @Override
     double getPerimeter() {
-        return a + b + c;
+        return sideA + sideB + sideC;
     }
 }

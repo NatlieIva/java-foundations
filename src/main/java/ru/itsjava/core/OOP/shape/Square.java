@@ -1,23 +1,23 @@
 package ru.itsjava.core.OOP.shape;
 
 public class Square extends Shape {
-    private int a;
+    private int sideA;
 
-    public Square(int a) {
-        this.a = a;
+    public Square(int sideA) {
+        this.sideA = sideA;
     }
 
-    public int getA() {
-        return a;
+    public int getSideA() {
+        return sideA;
     }
 
     @Override
     double getArea() {
-        return a * a;
+        return sideA * sideA;
     }
 
     @Override
     double getPerimeter() {
-        return 4 * a;
+        return 4 * sideA;
     }
 }

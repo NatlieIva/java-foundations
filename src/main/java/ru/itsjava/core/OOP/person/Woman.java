@@ -1,7 +1,7 @@
 package ru.itsjava.core.OOP.person;
 
 public class Woman extends Person {
-    private boolean isMale = false;
+    final boolean isMale;
 
     public Woman(String name, int age) {
         super(name, age);
