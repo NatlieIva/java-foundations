@@ -1,4 +1,4 @@
-package ru.itsjava.core.interfaces;
+package ru.itsjava.core.interfaces.types;
 
 public class Fish implements Swimable {
     final double maxSwimSpeed = 5.0;

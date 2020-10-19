@@ -1,4 +1,4 @@
-package ru.itsjava.core.interfaces;
+package ru.itsjava.core.interfaces.types;
 
 public class Dog implements Walkable, Runnable, Swimable {
     final double maxSwimSpeed = 10.0;

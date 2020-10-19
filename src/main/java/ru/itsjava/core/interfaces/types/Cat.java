@@ -1,4 +1,4 @@
-package ru.itsjava.core.interfaces;
+package ru.itsjava.core.interfaces.types;
 
 public class Cat implements Walkable, Runnable {
     final int maxRunDistance = 150;
