@@ -1,8 +1,10 @@
 package ru.itsjava.core.OOP.person;
 
+import lombok.AllArgsConstructor;
+
 abstract class Person {
     private boolean isMale;
-    private String name;
+    final String name;
     private int age;
 
     public Person(boolean isMale, String name, int age) {
@@ -12,7 +14,6 @@ abstract class Person {
     }
 
     public Person(String name, int age) {
-        this.isMale = isMale;
         this.name = name;
         this.age = age;
     }
