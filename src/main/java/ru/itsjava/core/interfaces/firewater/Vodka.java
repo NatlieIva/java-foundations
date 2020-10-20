@@ -18,7 +18,7 @@ public class Vodka {
         this.volume = volume;
     }
 
-    void drinkTooMuch(String name, int volume) {
+    public void drinkTooMuch(String name, int volume) {
         if (volume > 1) {
             System.out.println(name + " - good taste, but too much  - " + volume + " l");
         } else {
@@ -26,7 +26,7 @@ public class Vodka {
         }
     }
 
-    void drinkTooMuch(int volume) {
+    public void drinkTooMuch(int volume) {
         if (volume > 1) {
             System.out.println("Stop, please! ");
         } else {
@@ -35,5 +35,4 @@ public class Vodka {
 
     }
 
-    ;
 }
