@@ -7,9 +7,9 @@ public class Gin implements Creatable {
 
     }
 
-    @Override
-    public void printWish(String wish) {
-        System.out.println("Я пишу твое желание на песке - " + wish);
-
-    }
+//    @Override
+//    public void printWish(String wish) {
+//        System.out.println("Я пишу твое желание на песке - " + wish);
+//
+//    }
 }

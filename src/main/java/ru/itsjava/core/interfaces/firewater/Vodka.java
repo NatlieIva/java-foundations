@@ -1,10 +1,10 @@
 package ru.itsjava.core.interfaces.firewater;
 
 public class Vodka {
-    double temperature;
-    int volume;
-    String producingCountry;
-    String name;
+    private double temperature;
+    private int volume;
+    private String producingCountry;
+    private String name;
 
     public Vodka(double temperature, int volume, String producingCountry, String name) {
         this.temperature = temperature;
@@ -25,8 +25,6 @@ public class Vodka {
             System.out.println("You can drink more");
         }
     }
-
-    ;
 
     void drinkTooMuch(int volume) {
         if (volume > 1) {
