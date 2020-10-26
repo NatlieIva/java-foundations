@@ -1,4 +1,4 @@
-package ru.itsjava.core.OOP;
+package ru.itsjava.core;
 
 import java.util.Arrays;
 
