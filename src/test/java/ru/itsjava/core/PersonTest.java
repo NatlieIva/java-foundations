@@ -9,13 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Класс Person должен: ")
 public class PersonTest {
+    Person person = new Person("Pit", 25);
 
     @Test
     @DisplayName("корректно создавать конструктор")
-//    @BeforeEach
     public void shouldHaveCorrectConstructor() {
-        Person person = new Person("Pit", 25);
-
         Assertions.assertAll(() -> assertEquals("Pit", person.getName()),
                 () -> assertEquals(25, person.getAge()));
     }
@@ -23,7 +21,6 @@ public class PersonTest {
     @Test
     @DisplayName("корректно увеличивать возраст после дня рождения")
     public void shouldHaveCorrectBirthday() {
-        Person person = new Person("Pit", 25);
         person.birthday();
         assertEquals(26, person.getAge());
     }
@@ -31,7 +28,6 @@ public class PersonTest {
     @Test
     @DisplayName("отсеивать несовершеннолених")
     public void shouldCorrectIdentifiedMinors() {
-        Person person = new Person("Pit", 25);
         assertEquals(true, person.takeBeer());
     }
 
