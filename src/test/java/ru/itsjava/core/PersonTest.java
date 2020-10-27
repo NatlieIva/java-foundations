@@ -9,13 +9,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Класс Person должен: ")
 public class PersonTest {
-    Person person = new Person("Pit", 25);
+    public static final String NAME = "Pit";
+    public static final int AGE = 25;
+    Person person = new Person(NAME, AGE);
 
     @Test
     @DisplayName("корректно создавать конструктор")
     public void shouldHaveCorrectConstructor() {
         Assertions.assertAll(() -> assertEquals("Pit", person.getName()),
-                () -> assertEquals(25, person.getAge()));
+                () -> assertEquals(AGE, person.getAge()));
     }
 
     @Test
