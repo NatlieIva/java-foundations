@@ -1,5 +1,8 @@
 package ru.itsjava.core.myarraylist;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MyArrayListPractice {
     public static void main(String[] args) {
         MyArrayList list = new MyArrayList();
@@ -27,6 +30,11 @@ public class MyArrayListPractice {
         System.out.println("list.isEmpty() = " + list.isEmpty());
         System.out.println("list2.isEmpty() = " + list2.isEmpty());
 
+        list.clear();
+        System.out.println("list.isEmpty() = " + list.isEmpty());
+//
+//        ArrayList <Object> arr = new ArrayList<>();
+//        arr.clear();
 
     }
 }

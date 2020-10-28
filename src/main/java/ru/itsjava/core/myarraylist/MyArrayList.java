@@ -53,9 +53,16 @@ public class MyArrayList {
 
 
     public void clear() {
-        for (int i = 0; i < array.length; i++) {
+        array = new Object[realSize];
+        for (int i = realSize = 0; i < realSize; i++) {
+            //не понимаю, почему без (i = realSize = 0) не работает
             array[i] = null;
         }
+        //по аналогии с докуентацией:
+//        array = new Object[realSize];
+//        for (int to = realSize, i = realSize = 0; i < to; i++)
+//            array[i] = null;
+//        }
     }
 
 
