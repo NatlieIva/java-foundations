@@ -35,6 +35,8 @@ public class MyArrayListPractice {
 //
 //        ArrayList <Object> arr = new ArrayList<>();
 //        arr.clear();
+//        arr.contains();
+
 
     }
 }

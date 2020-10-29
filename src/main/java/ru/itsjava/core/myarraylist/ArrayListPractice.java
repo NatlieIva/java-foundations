@@ -33,9 +33,11 @@ public class ArrayListPractice {
         System.out.println("persons.size() = " + persons.size());
 
         // в) Записать в новый список все элементы предыдущего списка.
-        ArrayList<Person> newPersons = persons;
-
-        System.out.println(newPersons);
+        ArrayList<Person> newPersons = new ArrayList<Person>(persons.size());
+        for (int i = 0; i < persons.size(); i++) {
+            newPersons.add(i, persons.get(i));
+        }
+        System.out.println("new persons list: " + newPersons);
 
         // 1. Получить элемент по индексу:
         // а). Получить первый элемент
@@ -64,8 +66,8 @@ public class ArrayListPractice {
         // 6. Отфильтровать список вернуть записи по некоторому условию:
         // а) Условие на индекс: Индекс делится на 3
 
-        System.out.println("persons.size() = " + persons.size());
-        printElementsWithindexMultiplyOf3(persons);
+        System.out.println("Индекс делится на 3: ");
+        printElementsWithIndexMultiplyOf3(persons);
 
         // б) Условие на значение: Вернуть количество элементов, которые равны "***"
         Person person1 = new Person("Ann", Sex.FEMALE, 25);
@@ -79,7 +81,7 @@ public class ArrayListPractice {
 
         // 7. Пропустить несколько первых элементов
         // а) Пропустить первые 3 элемента в списке.
-//        System.out.println(persons);
+
         System.out.println("persons.subList(3,persons.size() = " + persons.subList(3, persons.size()));
 
         // 6 + 7: Пропускаем элементы, которые удовлетворяют некоторому условию
@@ -168,11 +170,11 @@ public class ArrayListPractice {
         return count;
     }
 
-    public static void printElementsWithindexMultiplyOf3(ArrayList<Person> persons) {
-        for (int i = 0; i < persons.size(); i++) {
-            if ((i != 0) && (i % 3 == 0)) {
-                System.out.println("index = " + i + " " + persons.get(i));
-            }
+    public static void printElementsWithIndexMultiplyOf3(ArrayList<Person> persons) {
+        for (int i = 3; i < persons.size(); ) {
+            System.out.println("index = " + i + " " + persons.get(i));
+            i = i + 3;
+
         }
     }
 }

@@ -6,12 +6,11 @@ import java.util.List;
 public class MyArrayList {
 
     private static final int DEFAULT_CAPACITY = 10;
-    private int realSize;
+    private int realSize = 0;
     private Object[] array;
 
     public MyArrayList() {
         array = new Object[DEFAULT_CAPACITY];
-        realSize = 0;
     }
 
     public int size() {
@@ -20,16 +19,15 @@ public class MyArrayList {
 
 
     public boolean isEmpty() {
-        if (realSize == 0) {
-            return true;
-        }
-        return false;
+        return realSize == 0;
     }
 
 
     public boolean contains(Object o) {
         for (Object value : array) {
-            return value == o;
+            if (value.equals(o)) {
+                return true;
+            }
         }
         return false;
     }
@@ -54,10 +52,11 @@ public class MyArrayList {
 
     public void clear() {
         array = new Object[realSize];
-        for (int i = realSize = 0; i < realSize; i++) {
+        for (int i = 0; i < realSize; i++) {
             //не понимаю, почему без (i = realSize = 0) не работает
             array[i] = null;
         }
+        realSize = 0;
         //по аналогии с докуентацией:
 //        array = new Object[realSize];
 //        for (int to = realSize, i = realSize = 0; i < to; i++)
