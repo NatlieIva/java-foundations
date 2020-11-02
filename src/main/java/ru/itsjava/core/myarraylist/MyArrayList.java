@@ -1,6 +1,7 @@
 package ru.itsjava.core.myarraylist;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MyArrayList {
@@ -24,8 +25,9 @@ public class MyArrayList {
 
 
     public boolean contains(Object o) {
+        if (o == null) return false;
         for (Object value : array) {
-            if (value.equals(o)) {
+            if (o.equals(value)) {
                 return true;
             }
         }
@@ -46,7 +48,22 @@ public class MyArrayList {
 
 
     public boolean remove(Object o) {
-        return false;
+        if (o == null) return false;
+        int delIndex = -1;
+        for (int i = 0; i < realSize; i++) {
+            if (o.equals(array[i])) {
+                delIndex = i;
+                break;
+            }
+        }
+        if (delIndex == -1) return false;
+        for (int i = delIndex; i < realSize; i++) {
+            array[i] = array[i + 1];
+//            array[i + 1] = null;
+        }
+        realSize--;
+        array[realSize] = null;
+        return true;
     }
 
 
@@ -57,40 +74,79 @@ public class MyArrayList {
             array[i] = null;
         }
         realSize = 0;
-        //по аналогии с докуентацией:
-//        array = new Object[realSize];
-//        for (int to = realSize, i = realSize = 0; i < to; i++)
-//            array[i] = null;
-//        }
     }
 
 
     public Object get(int index) {
-        return null;
+        if ((index < 0) || (index > array.length)) throw new ArrayIndexOutOfBoundsException(index);
+        return array[index];
     }
 
 
     public Object set(int index, Object element) {
-        return null;
+        array[index] = element;
+        return array;
     }
 
 
     public void add(int index, Object element) {
+        if (realSize == array.length) {
+            var resArray = new Object[array.length * 3 / 2 + 1];
 
+            System.arraycopy(array, 0, resArray, 0, array.length);
+            array = resArray;
+        }
+        Object moveElement = array[index];
+        realSize++;
+        array[index] = element;
+        for (int i = realSize; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index + 1] = moveElement;
     }
 
 
     public Object remove(int index) {
-        return null;
+        if ((index < 0) || (index > array.length)) throw new ArrayIndexOutOfBoundsException(index);
+        for (int i = index; i < realSize; i++) {
+            array[i] = array[i + 1];
+            array[i + 1] = null;
+        }
+        realSize--;
+        return true;
     }
 
 
     public int indexOf(Object o) {
-        return 0;
+        if (o == null) return -1;
+        for (int index = 0; index < realSize; index++) {
+            if (o.equals(array[index])) {
+                return index;
+            }
+        }
+        return -1;
     }
 
 
     public int lastIndexOf(Object o) {
-        return 0;
+        if (o == null) return -1;
+        for (int index = realSize; index > 0; index--) {
+            if (o.equals(array[index])) {
+                return index;
+            }
+        }
+        return -1;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder printArray = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            printArray.append(array[i] + ", ");
+        }
+        return "MyArrayList{" +
+                "array= " + printArray +
+                '}';
+    }
+
 }
