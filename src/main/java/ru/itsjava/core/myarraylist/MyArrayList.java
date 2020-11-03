@@ -84,12 +84,14 @@ public class MyArrayList {
 
 
     public Object set(int index, Object element) {
+        if ((index < 0) || (index > array.length)) throw new ArrayIndexOutOfBoundsException(index);
         array[index] = element;
         return array;
     }
 
 
     public void add(int index, Object element) {
+        if ((index < 0) || (index > array.length)) throw new ArrayIndexOutOfBoundsException(index);
         if (realSize == array.length) {
             var resArray = new Object[array.length * 3 / 2 + 1];
 
@@ -141,7 +143,7 @@ public class MyArrayList {
     @Override
     public String toString() {
         StringBuilder printArray = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < realSize; i++) {
             printArray.append(array[i] + ", ");
         }
         return "MyArrayList{" +
