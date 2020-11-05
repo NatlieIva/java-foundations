@@ -1,4 +1,4 @@
-package ru.itsjava.core.myarraylist;
+package ru.itsjava.core.collections.list.arraylist;
 
 public class Person {
     private final String name;
