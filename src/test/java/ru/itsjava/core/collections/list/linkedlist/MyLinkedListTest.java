@@ -6,7 +6,7 @@ import ru.itsjava.core.collections.list.arraylist.MyArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("Класс MyArrayList должен: ")
+@DisplayName("Класс MyLinkedList должен: ")
 public class MyLinkedListTest {
 
 //    @Test
@@ -20,7 +20,7 @@ public class MyLinkedListTest {
     @Test
     @DisplayName("корректно отображать размер листа")
     public void shouldGetCorrectSize() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");
@@ -33,14 +33,14 @@ public class MyLinkedListTest {
     @Test
     @DisplayName("корректно определять, что лист пустой")
     public void shouldGetCorrectMessageIsEmpty() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         assertEquals(list.isEmpty(), true);
     }
 
     @Test
     @DisplayName("корректно находить элемент")
     public void shouldGetCorrectContain() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");
@@ -53,31 +53,44 @@ public class MyLinkedListTest {
     @Test
     @DisplayName("корректно добавлять элемент")
     public void shouldAddCorrectElement() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         assertEquals(list.add("str"), true);
+        System.out.println("list = " + list);
     }
 
     @Test
     @DisplayName("корректно устанавливать элемент по индексу")
     public void shouldSetCorrectElementByIndex() {
-        MyArrayList list = new MyArrayList();
-        list.set(0, "setStr");
-        assertEquals(list.get(0), "setStr");
+        MyLinkedList list = new MyLinkedList();
+        list.add("str1");
+        list.add("str2");
+        list.add("str3");
+        list.add("str4");
+        list.add("str5");
+        list.add("str6");
+        list.set(2, "setStr");
+        assertEquals(list.get(2), "setStr");
     }
 
     @Test
     @DisplayName("корректно добавлять элемент по индексу")
     public void shouldAddCorrectElementByIndex() {
-        MyArrayList list = new MyArrayList();
-        list.add(5, "addStr");
+        MyLinkedList list = new MyLinkedList();
+        list.add("str1");
+        list.add("str2");
+        list.add("str3");
+        list.add("str4");
+        list.add("str5");
+        list.add("str6");
+        list.add(0, "addStr");
 //        System.out.println(list.toString());
-        assertEquals(list.get(5), "addStr");
+        assertEquals(list.get(0), "addStr");
     }
 
     @Test
     @DisplayName("корректно удалять элемент")
     public void shouldCorrectRemove() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");
@@ -91,21 +104,22 @@ public class MyLinkedListTest {
     @Test
     @DisplayName("корректно удалять элемент по индексу")
     public void shouldCorrectRemoveElementByIndex() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");
         list.add("str4");
         list.add("str5");
         list.add("str6");
-        System.out.println(list.remove(3));
-        assertEquals(list.get(3), "str5");
+        System.out.println("remove element - " + list.remove(1));
+        assertEquals(list.get(1), "str3");
+        //валится на всем
     }
 
     @Test
     @DisplayName("корректно очищать лист  ")
     public void shouldCorrectClear() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");
@@ -121,7 +135,7 @@ public class MyLinkedListTest {
     @Test
     @DisplayName("корректно отображать индекс элемента")
     public void shouldGetCorrectIndex() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");
@@ -135,7 +149,7 @@ public class MyLinkedListTest {
     @Test
     @DisplayName("корректно отображать индекс последнего элемента")
     public void shouldGetCorrectIndexLastElement() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
         list.add("str1");
         list.add("str2");
         list.add("str3");

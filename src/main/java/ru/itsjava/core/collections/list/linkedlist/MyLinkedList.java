@@ -106,16 +106,17 @@ public class MyLinkedList {
         }
 
         Node curNode = head;
-        int count = 0;
+        int count = 1;
         while ((curNode = curNode.getNext()) != null) {
-            count++;
             if (index == count) {
                 curNode.setValue(element);
+                break;
             }
-            return curNode.getValue();
+            count++;
         }
-        return null;
+        return curNode.getValue();
     }
+
 
     public void add(int index, Object element) {
         checkIndex(index);
@@ -139,22 +140,31 @@ public class MyLinkedList {
 
     public Object remove(int index) {
         checkIndex(index);
-        if (index == 0) return head;
+        Object delElement;
+        // не придумала, как без этой ссылки обойтись, ибо возвращаем в результате элемент, который удалили. Или нет?
+
+        if (index == 0) {
+            delElement = head.getValue();
+            head = head.getNext();
+            return delElement;
+        }
 
         Node curNode = head;
         Node prevNode = head;
-        int count = 0;
-        while ((curNode = curNode.getNext()) != null) {
-            if (index == count) {
-                prevNode.setNext(curNode.getNext());
-                return prevNode.getValue();
-            }
-            count++;
-            prevNode = prevNode.getNext();
-        }
-        return null;
-    }
 
+        int count = 1;
+        while ((curNode = curNode.getNext()) != null) {
+
+            if (index == count) {
+                break;
+            }
+            prevNode = prevNode.getNext();
+            count++;
+        }
+
+        prevNode.setNext(curNode.getNext());
+        return curNode.getValue();
+    }
 
     public int indexOf(Object o) {
         if (head == null) return -1;
@@ -173,15 +183,14 @@ public class MyLinkedList {
         }
         return -1;
     }
+    //смущают возвращаемые значения. -1 корректно писать?
 
     public int lastIndexOf(Object o) {
         int lastIndex = 0;
         int count = 1;
-//        if (head == null) return -1;
-//        if (head.getValue().equals(o)) {
-//            lastIndex = 0;
-//        }
-//        if (head.getNext() == null) return 0;
+        if (head == null) return -1;
+        if (head.getValue().equals(o)) return 0;
+        if (head.getNext() == null) return -1;
 
         Node curNode = head;
 
