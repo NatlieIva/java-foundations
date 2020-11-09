@@ -40,7 +40,7 @@ public class MapPractice {
 
         System.out.println("fruitHashMap = " + fruitHashMap);
 
-        //1. Получение элемента по ключу (Получить любой фрукт по покупателю)
+//        1. Получение элемента по ключу (Получить любой фрукт по покупателю)
         System.out.println("fruitHashMap.get(\"Sam\") = " + fruitHashMap.get("Sam"));
 //
 //        3. Удаление элемента а). Удалить любой фрукт
@@ -130,5 +130,15 @@ public class MapPractice {
             }
         }
         System.out.println(newFruitHashMap);
+
+//        10. Найти средний вес всех фруктов.
+        int count4 = 0;
+        double sumWeight = 0;
+        for (Map.Entry<Man, Fruit> pair : fruitHashMap.entrySet()
+        ) {
+            count4++;
+            sumWeight = sumWeight + pair.getValue().getWeight();
+        }
+        System.out.println("Average weight " + sumWeight / count4 + " kg");
     }
 }
