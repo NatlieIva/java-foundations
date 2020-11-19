@@ -64,7 +64,7 @@ public class BestLogger {
     public void printLog(BestLogger logger) {
         System.out.println(logger.toString());
     }
-
+//не довела
 //    public String findByDate(String date){
 //        StringBuilder foundMessage = new StringBuilder();
 //        String[] strings = info.toString().split("\n");
