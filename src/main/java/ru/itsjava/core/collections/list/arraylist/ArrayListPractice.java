@@ -29,19 +29,19 @@ public class ArrayListPractice {
 
         persons.add(2, bill);
         persons.add(0, matt);
-//        System.out.println(persons);
-//        System.out.println("persons.size() = " + persons.size());
-//
-//        // в) Записать в новый список все элементы предыдущего списка.
-//        ArrayList<Person> newPersons = new ArrayList<Person>(persons.size());
-//        for (int i = 0; i < persons.size(); i++) {
-//            newPersons.add(i, persons.get(i));
-//        }
-//        System.out.println("new persons list: " + newPersons);
-//
-//        // 1. Получить элемент по индексу:
-//        // а). Получить первый элемент
-//        System.out.println("first element = " + persons.get(0));
+        System.out.println(persons);
+        System.out.println("persons.size() = " + persons.size());
+
+        // в) Записать в новый список все элементы предыдущего списка.
+        ArrayList<Person> newPersons = new ArrayList<Person>(persons.size());
+        for (int i = 0; i < persons.size(); i++) {
+            newPersons.add(i, persons.get(i));
+        }
+        System.out.println("new persons list: " + newPersons);
+
+        // 1. Получить элемент по индексу:
+        // а). Получить первый элемент
+        System.out.println("first element = " + persons.get(0));
 //
 //        // б). Получить последний элемент
 //        System.out.println("last element = " + persons.get(persons.size() - 1));

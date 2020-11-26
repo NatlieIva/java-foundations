@@ -15,7 +15,7 @@ public class BestLogger {
         logger.append(dateFormat.format(curDate) + " - " + message + "\n");
         return logger;
     }
-    
+
     public String findByMessage(String message) {
         String s = "Found";
 //        Pattern pattern = Pattern.compile("\\d{2}-\\d{2}-\\d{4}\\s:\\s\\d{2}-\\d{2}\\s-\\s([a-zA-Z_0-9].+)");
