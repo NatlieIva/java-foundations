@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Recursion {
 
     public static void main(String[] args) {
+
         System.out.println(getFactorial(5));
         printArray(4);
         System.out.println(getFibonacciNumbers(6));
@@ -16,6 +17,9 @@ public class Recursion {
     }
 
     public static int getFactorial(int num) {
+//        if (num < 0){
+//            throw new Exception("No correct number - < 0");
+//        }
         int factorial = 1;
         int count = 1;
         while (count <= num) {

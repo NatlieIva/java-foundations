@@ -5,6 +5,11 @@ public class Person {
     private final Sex sex;
     private int age;
 
+    public Person(String name, Sex sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+
     public Person(String name, Sex sex, int age) {
         this.name = name;
         this.sex = sex;
@@ -23,9 +28,13 @@ public class Person {
         return this.age;
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws NotCorrectAgeException {
+        if (age < 0) {
+            throw new NotCorrectAgeException();
+        }
         this.age = age;
     }
+
 
     public boolean equals(final Object o) {
         if (o == this) return true;
@@ -60,4 +69,11 @@ public class Person {
     public String toString() {
         return "Person(name=" + this.getName() + ", sex=" + this.getSex() + ", age=" + this.getAge() + ")";
     }
+
+    public void drinkVodka() throws UnderAgeException {
+        if (this.age < 18) {
+            throw new UnderAgeException();
+        }
+    }
 }
+

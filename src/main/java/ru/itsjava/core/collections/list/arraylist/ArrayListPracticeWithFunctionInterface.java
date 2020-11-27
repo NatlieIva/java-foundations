@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class ArrayListPracticeWithFunctionInterface {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NotCorrectAgeException {
 
         ArrayList<Person> persons = new ArrayList<>(20);
 

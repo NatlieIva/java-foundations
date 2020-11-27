@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayListPractice {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NotCorrectAgeException {
 
         // а). Создать пустой список
         List<Person> personsEmptyArray = new ArrayList<>();
