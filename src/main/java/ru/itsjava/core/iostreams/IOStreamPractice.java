@@ -75,7 +75,6 @@ public class IOStreamPractice {
         List<String> lines = null;
         try {
             lines = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
-//            printString(lines);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
