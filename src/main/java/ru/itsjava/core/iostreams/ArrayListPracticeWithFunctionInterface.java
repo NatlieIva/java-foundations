@@ -186,7 +186,7 @@ public class ArrayListPracticeWithFunctionInterface {
                 "возраст которых от 15 до 37 и вывести их всех через пробел ");
         Collection<Person> personList = persons.stream()
                 .filter(person -> person.getAge() < 37 && person.getAge() > 15)
-                .sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
+                .sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toSet());
         System.out.println(personList + " ");
     }
 
