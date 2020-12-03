@@ -14,5 +14,7 @@ public class PropertiesPractice {
         props.load(resourceAsStream);
         System.out.println(props.getProperty("key1"));
         System.out.println(props.getProperty("key2"));
+
+        System.out.println(Settings.getValue("key3"));
     }
 }
