@@ -1,7 +1,8 @@
 package ru.itsjava.core.collections.list.arraylist;
 
+import ru.itsjava.core.exception.NotCorrectAgeException;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArrayListPractice {

@@ -1,4 +1,8 @@
-package ru.itsjava.core.collections.list.arraylist;
+package ru.itsjava.core.exception;
+
+import ru.itsjava.core.collections.list.arraylist.Person;
+import ru.itsjava.core.collections.list.arraylist.Sex;
+import ru.itsjava.core.exception.UnderAgeException;
 
 public class ExceptionPractice {
     public static void main(String[] args) {

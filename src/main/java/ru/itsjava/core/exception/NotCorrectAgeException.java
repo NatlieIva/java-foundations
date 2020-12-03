@@ -1,4 +1,4 @@
-package ru.itsjava.core.collections.list.arraylist;
+package ru.itsjava.core.exception;
 
 public class NotCorrectAgeException extends RuntimeException {
 
