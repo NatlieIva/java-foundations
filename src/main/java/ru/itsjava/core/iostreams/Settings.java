@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Settings {
-    Properties props;
+    private static Properties props;
 
     public static String getValue(String key) throws IOException {
         InputStream resourceAsStream = Settings.class.getClassLoader().getResourceAsStream("application.properties");
