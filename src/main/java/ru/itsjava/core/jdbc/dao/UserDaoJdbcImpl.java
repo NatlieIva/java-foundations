@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class UserDaoJdbcImpl implements UserDao {
 
@@ -21,12 +22,13 @@ public class UserDaoJdbcImpl implements UserDao {
                 while (resultSet.next()) {
                     foundUser.add(new User(resultSet.getString("name"), resultSet.getInt("age")));
                 }
-                return foundUser;
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
-
-        return null;
+        if (foundUser.isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return foundUser;
     }
 }

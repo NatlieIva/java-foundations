@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class UserMessageDaoJdbcImpl implements UserMessageDao {
 
@@ -26,12 +27,13 @@ public class UserMessageDaoJdbcImpl implements UserMessageDao {
                     foundMessage.add(new UserMessage(resultSet.getString("name"),
                             resultSet.getString("message")));
                 }
-                return foundMessage;
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
-
-        return null;
+        if (foundMessage.isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return foundMessage;
     }
 }
