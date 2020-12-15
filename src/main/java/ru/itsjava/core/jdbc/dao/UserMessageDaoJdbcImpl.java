@@ -1,8 +1,8 @@
 package ru.itsjava.core.jdbc.dao;
 
+import ru.itsjava.core.jdbc.domain.Message;
 import ru.itsjava.core.jdbc.domain.Settings;
 import ru.itsjava.core.jdbc.domain.User;
-import ru.itsjava.core.jdbc.domain.UserMessage;
 
 import java.io.IOException;
 import java.sql.*;
@@ -13,8 +13,8 @@ import java.util.NoSuchElementException;
 public class UserMessageDaoJdbcImpl implements UserMessageDao {
 
     @Override
-    public List<UserMessage> findAllByUser(User user) {
-        List<UserMessage> foundMessage = new ArrayList<>();
+    public List<Message> findAllByUser(User user) {
+        List<Message> foundMessage = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(Settings.getValue("DB_URL"),
                 Settings.getValue("DB_NAME"), Settings.getValue("DB_PASSWORD"))) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(
@@ -24,8 +24,9 @@ public class UserMessageDaoJdbcImpl implements UserMessageDao {
                 preparedStatement.setInt(2, user.getAge());
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
-                    foundMessage.add(new UserMessage(resultSet.getString("name"),
-                            resultSet.getString("message")));
+                    foundMessage.add(new Message(resultSet.getString("name"),
+                            resultSet.getString("message"),
+                            user));
                 }
             }
         } catch (SQLException | IOException e) {

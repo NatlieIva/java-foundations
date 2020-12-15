@@ -3,9 +3,10 @@ package ru.itsjava.core.jdbc.domain;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class UserMessage {
+public class Message {
     private final String author;
     private String message;
+    private final User userFrom;
 
     @Override
     public String toString() {
