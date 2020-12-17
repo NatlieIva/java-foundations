@@ -1,4 +1,4 @@
-package ru.itsjava.core.jdbc.domain;
+package ru.itsjava.core.jdbc.util;
 
 import java.io.IOException;
 import java.io.InputStream;
