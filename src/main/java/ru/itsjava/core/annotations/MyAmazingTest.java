@@ -1,36 +1,51 @@
 package ru.itsjava.core.annotations;
 
 public class MyAmazingTest {
-    @Test
-    public void test1() {
-    }
-
     @Before
-    public void test2() {
-        System.out.println("Before");
+    public void test1Before() {
     }
 
     @BeforeAll
-    public void test3() {
-        System.out.println("Before all!");
+    public void test2BeforeAll() {
     }
 
     @Test
-    public void test4() {
+    public void test3() {
+
+    }
+
+    @AfterAll
+    public void test4AfterAll() {
+    }
+
+    @BeforeAll
+    public void test5BeforeAll() {
+        ;
+    }
+
+    @Test
+    public void test6() {
+    }
+
+    @AfterAll
+    public void test7AfterAll() {
+
+    }
+
+    @BeforeAll
+    public void test8BeforeAll() {
+    }
+
+    @Test
+    public void test9() {
         throw new AssertionError();
     }
 
     @AfterAll
-    public void test5() {
-        System.out.println("After");
+    public void test10AfterAll() {
     }
 
     @After
-    public void test6() {
-        System.out.println("After all!");
-    }
-
-    @Test
-    public void test7() {
+    public void test11After() {
     }
 }
