@@ -30,25 +30,17 @@ public class MyAmazingTestLogic {
                 testQueue.add(method);
         }
 
-        for (Method methodBefore : beforeQueue) {
-            try {
-                methodBefore.invoke(myAmazingTest);
-            } catch (Throwable throwable) {
-            }
-        }
+        invokeMethods(myAmazingTest, beforeQueue);
         for (Method methodTest : testQueue) {
             try {
-                for (Method methodBeforeAll : beforeAllQueue) {
-                    methodBeforeAll.invoke(myAmazingTest);
-                }
+                invokeMethods(myAmazingTest, beforeAllQueue);
 
                 methodTest.invoke(myAmazingTest);
                 passedTests++;
                 System.out.println("Test " + methodTest.getName() + " successfully passed");
 
-                for (Method methodAfterAll : afterAllQueue) {
-                    methodAfterAll.invoke(myAmazingTest);
-                }
+                invokeMethods(myAmazingTest, afterAllQueue);
+
             } catch (Throwable throwable) {
                 failedTests++;
                 throwable.printStackTrace();
@@ -56,14 +48,18 @@ public class MyAmazingTestLogic {
             }
         }
 
-        for (Method methodAfter : afterQueue) {
-            try {
-                methodAfter.invoke(myAmazingTest);
-            } catch (Throwable throwable) {
-            }
-        }
+        invokeMethods(myAmazingTest, afterQueue);
 
         System.out.println("Passed tests: " + passedTests);
         System.out.println("Failed tests: " + failedTests);
+    }
+
+    private static void invokeMethods(MyAmazingTest myAmazingTest, List<Method> queue) {
+        for (Method method : queue) {
+            try {
+                method.invoke(myAmazingTest);
+            } catch (Throwable throwable) {
+            }
+        }
     }
 }
